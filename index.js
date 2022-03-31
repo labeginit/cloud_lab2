@@ -1,11 +1,8 @@
 const port = process.env.PORT || 3001;
-//for webserver to be created
+
 const express = require('express');
 
-//create a webserver using express
 const app = express();
-
-app.set('view engine', 'ejs');
 
 app.get('/calc', function(req, res) {  
   let parameters = req.query;
@@ -48,6 +45,7 @@ app.get('/calc', function(req, res) {
   //start the webserver on port X
 app.listen(port);
 
+// calulator
 function calc(op, num1, num2){
     let result = 0;
     switch (op) {
