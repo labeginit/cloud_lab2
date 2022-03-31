@@ -1,7 +1,7 @@
 # A web API with one end point /calc and three parameters
-:operation  (possible values: add, sub, mul, div)
-:numberone  (int)
-:numbertwo  (int)
+:operation  (possible values: add, sub, mul, div) 
+:numberone  (int) 
+:numbertwo  (int) 
 
 **Returns a result of arithmetical calculation**
 
