@@ -8,9 +8,7 @@ const app = express();
 app.set('view engine', 'ejs');
 
 app.get('/calc', function(req, res) {  
-  console.log('Got body:', req.query);
   let parameters = req.query;
- 
   let op = parameters.operation;
   let num1 = 0;
   let num2 = 0;
@@ -20,9 +18,7 @@ app.get('/calc', function(req, res) {
     if ((typeof(op)=== 'string') && typeof(num1)==='number' && typeof(num2)==='number'){
         if ((op === 'add') || (op === 'sub') || (op === 'div') || (op === 'mul')){
         let result = calc(op, num1, num2);
-        console.log(result);
         result = result || null;
-        console.log(result);
         res.status(result._error ? 500 : 200);
         res.json(result);
         } else {
@@ -40,6 +36,11 @@ app.get('/calc', function(req, res) {
 });
   
   app.get('/', function(req, res) {  
+    res.status(404);
+    res.json(null);
+  });
+
+  app.get('*', function(req, res) {  
     res.status(404);
     res.json(null);
   });
